@@ -16,7 +16,8 @@ class Activity(models.Model):
 
         key_value_class = ['GET', 'POST', 'COOKIES', 'SESSION', 'META', 'Response_variables']
         for class_name in key_value_class:
-            eval(class_name).load_from_dictionary(activity, dictionary[class_name])
+            for key, value in dictionary[class_name].iteritems():
+                eval(class_name).load_key_and_value(activity, key, value)
         
 
 class KeyValueModel(models.Model):
@@ -26,13 +27,11 @@ class KeyValueModel(models.Model):
     child_class = []
 
     @classmethod
-    def load_from_dictionary(cls, activity, dictionary):
+    def load_key_and_value(cls, activity, key, value):
         model  = cls()
         model .activity = activity
-        
-        for key, value in dictionary.iteritems():
-            model.key = key
-            model.value = value
+        model.key = key
+        model.value = value
         model.save()
 
 class GET(KeyValueModel):

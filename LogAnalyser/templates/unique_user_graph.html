@@ -4,13 +4,8 @@
 {% endblock %}
 {% block script %}
 var line1 = [];
-$.getJSON('/activity/count/hourly/?date=2012-09-29',function(data){
-	console.log(data['hour_count']);
-	for(var i in data['hour_count'])
-	{
-		line1.push(data['hour_count'][i]);
-	}
-	$.jqplot('chart1', [line1]);
+$.getJSON('/activity/count/uniqueUser/',function(data){
+	console.log(data);
 });
 /*
 var plot1 = $.jqplot('chart1', line1, {

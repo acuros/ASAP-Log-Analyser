@@ -48,11 +48,10 @@ def parse():
         log_parser = LogParser(log)
         
         time = log_parser.get_activity_time()
-        activity_info = log_parser.get_activity_info()
-        activity_info['time'] = time
-        activities.append(activity_info)
+        activity_data = log_parser.get_activity_info()
+        activity_data['time'] = time
+        activities.append(activity_data)
     f.close()
-    
+       
     for activity_info in activities:
         Activity.load_from_dictionary(activity_info)
-
