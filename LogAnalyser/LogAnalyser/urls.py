@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'oic.views.home', name='home'),
     url(r'^meeting/', include('meeting.urls')),
+    url(r'^activity/', include('activityApp.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

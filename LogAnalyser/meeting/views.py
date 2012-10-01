@@ -2,6 +2,7 @@ from django.http import HttpResponse
 
 class MeetingListView():
     def link_to_view():
+        pass
 
 class MeetingAddView():
     def link_to_view():
