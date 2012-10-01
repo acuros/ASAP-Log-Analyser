@@ -38,6 +38,12 @@ class LogParser(object):
         return [ActivityData(parsed_dict) for parsed_dict in re.findall(r'(\t*)([a-zA-Z_ ]+) : *(.+)*\n?', data)]
 
 
+    @classmethod
+    def get_requested_view_name(cls, activity_info):
+        uri = activity_info['META']['REQUEST_URI']
+        return re.match(r"<class '.*\.(\w+)'", str(resolve(uri).func.__self__)).groups()[0]
+
+
 class Activity(object):
     def __init__(self, log):
         log_parser = LogParser(log)

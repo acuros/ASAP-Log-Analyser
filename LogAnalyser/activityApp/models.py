@@ -2,9 +2,9 @@ from django.db import models
 
 class Activity(models.Model):
     time = models.DateField()
+    name = models.CharField(max_length=50)
     return_code = models.CharField(max_length=30)
     reason = models.CharField(max_length=30)
-    response_variables = models.TextField()
 
 class KeyValueModel(models.Model):
     activity = models.ForeignKey(Activity)
@@ -24,4 +24,7 @@ class SESSION(KeyValueModel):
     pass
 
 class META(KeyValueModel):
+    pass
+
+class ResponseVariables(KeyValueModel):
     pass
