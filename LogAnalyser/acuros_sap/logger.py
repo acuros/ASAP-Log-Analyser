@@ -29,7 +29,7 @@ class Logger(object):
             meta_info[key] = request.META.get(key, None)
         logs = ['', 'GET : %s'%self._get_dict_str(request.GET), 'POST : %s'%self._get_dict_str(request.POST), 'COOKIES : %s'%self._get_dict_str(request.COOKIES), 'SESSION : %s'%self._get_dict_str(request.session), 'META : %s'%self._get_dict_str(meta_info), 'Return code : %s'%self.code, 'Reason : %s'%self.reason]
         response_variables_str = self._get_dict_str(self.return_dict)
-        logs.append('Response variables : %s'%response_variables_str)
+        logs.append('Response_variables : %s'%response_variables_str)
         return '\n'.join(logs)
     
     def _get_caller_function (self):
