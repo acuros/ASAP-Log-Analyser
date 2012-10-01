@@ -57,3 +57,11 @@ img
 
         width: 1000px;
 }
+
+#menu
+{
+        float: left;
+        width: 100px;
+        height: 150px;
+        background-color: rgba(0, 0, 0, 0.5);
+}

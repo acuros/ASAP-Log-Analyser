@@ -7,7 +7,7 @@
     <meta name="Author" content="Acuros" />
     <meta name="Description" content="" />
     <meta name="Keywords" name="" />
-    <title>DBoard | {% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
 
     <style type="text/css">
     /*<![CDATA[*/
@@ -21,8 +21,15 @@
         <div id="header">
         </div>
         <div id="main">
-            {% block main %}{% endblock %}
-        </div>
+			<div id="menu">
+				<ul>
+					<li><a href="/">Home</a></li>
+				</ul>
+			</div>
+			<div id="content">
+				{% block content %}{% endblock %}
+	    	</div>    
+		</div>
         <div id="footer">
         </div>
     </div>
