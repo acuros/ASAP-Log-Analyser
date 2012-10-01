@@ -1,4 +1,6 @@
 import datetime, re
+from django.core.urlresolvers import resolve
+
 class ActivityData(object):
     def __init__(self, parsed_dict):
         self.parsed_dict = parsed_dict
