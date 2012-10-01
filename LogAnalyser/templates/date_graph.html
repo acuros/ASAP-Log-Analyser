@@ -1,14 +1,21 @@
+{% extends "base.html" %}
 {% block content %}
-	<div id="chartdiv" style="height:400px;width:300px; "></div>
+	<div id="chart1" style="height:400px;width:300px; "></div>
 {% endblock %}
 {% block script %}
-var line1=[
-{% for data in datas %}
-	{{ data }},
-{% endfor %}];
-var plot1 = $.jqplot('chart1', [line1], {
+var line1 = [];
+$.getJSON('/activity/count/hourly/?date=2012-09-29',function(data){
+	console.log(data['hour_count']);
+	for(var i in data['hour_count'])
+	{
+		line1.push(data['hour_count'][i]);
+	}
+	$.jqplot('chart1', [line1]);
+});
+/*
+var plot1 = $.jqplot('chart1', line1, {
 	title:'Default Date Axis',
 	axes:{xaxis:{renderer:$.jqplot.DateAxisRenderer}},
 	series:[{lineWidth:4, markerOptions:{style:'square'}}]
-});
+});*/
 {% endblock %}
