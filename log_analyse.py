@@ -1,4 +1,6 @@
 import datetime, re
+from django.core.urlresolvers import resolve
+
 class ActivityData(object):
     def __init__(self, parsed_dict):
         self.parsed_dict = parsed_dict
@@ -36,6 +38,12 @@ class LogParser(object):
     def get_activity_data_list(self):
         data = log[log.find('\n')+1:]
         return [ActivityData(parsed_dict) for parsed_dict in re.findall(r'(\t*)([a-zA-Z_ ]+) : *(.+)*\n?', data)]
+
+
+    @classmethod
+    def get_requested_view_name(cls, activity_info):
+        uri = activity_info['META']['REQUEST_URI']
+        return re.match(r"<class '.*\.(\w+)'", str(resolve(uri).func.__self__)).groups()[0]
 
 
 class Activity(object):

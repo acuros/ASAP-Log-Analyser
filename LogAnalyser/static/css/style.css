@@ -1,0 +1,67 @@
+
+@charset "UTF-8";
+
+*
+{
+        font-family: Tahoma, 'ＭＳ Ｐゴシック', 'MS PGothic', 굴림, Gulim, UnDotum, Sans-Serif;
+}
+
+body
+{
+        font-size: 12px;
+}
+
+th, td, input, button, select, textarea
+{
+        font-size: 1em;
+}
+
+a:link,
+a:visited
+{
+        color: #44F;
+        text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active
+{
+        color: #F44;
+        text-decoration: underline;
+}
+
+img
+{
+        border: none 0 transparent;
+}
+
+.button
+{
+        color: #44F;
+        text-decoration: none;
+        cursor: pointer;
+}
+
+.button:hover
+{
+        color: #F44;
+        text-decoration: underline;
+}
+
+#wrap
+{
+        position: relative;
+
+        margin: 0 auto;
+
+        width: 1000px;
+}
+
+#menu
+{
+        float: left;
+        width: 100px;
+        height: 150px;
+        background-color: rgba(0, 0, 0, 0.5);
+}
